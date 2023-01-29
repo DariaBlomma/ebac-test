@@ -3,25 +3,30 @@ import {
   URL,
 } from 'node:url';
 
-import { defineConfig } from 'vite';
+import {
+  defineConfig,
+  loadEnv,
+} from 'vite';
 import vue from '@vitejs/plugin-vue';
 
-const isProduction = process.env.NODE_ENV === 'production';
-
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: isProduction ? '/ebac-test/' : '/',
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import \'./src/assets/styles/variables.scss\';',
+export default defineConfig(({ command, mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+
+  return {
+    base: env.VITE_BASE_PATH,
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import \'./src/assets/styles/variables.scss\';',
+        },
       },
     },
-  },
-  plugins: [vue()],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    plugins: [vue()],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
     },
-  },
+  };
 });
