@@ -46,5 +46,16 @@ module.exports = {
       ignores: ['pre', 'textarea'],
       allowEmptyLines: true,
     }],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        '': 'never',
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
 };
