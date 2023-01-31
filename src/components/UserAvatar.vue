@@ -32,11 +32,11 @@ import IconTrashBin from '@/components/icons/IconTrashBin.vue';
 import { getDynamicImgUrl } from '@/helpers';
 
 import { ref } from 'vue';
+import defaultUrl from '../assets/images/user.png';
 
 type FileEventTarget = EventTarget & { files: FileList };
 
 const error = ref('');
-const defaultUrl = '../assets/images/user.png';
 
 const imgUrl = ref(getDynamicImgUrl(defaultUrl));
 

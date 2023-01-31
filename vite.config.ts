@@ -3,18 +3,17 @@ import {
   URL,
 } from 'node:url';
 
-import {
-  defineConfig,
-  loadEnv,
-} from 'vite';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
-  const env = loadEnv(mode, process.cwd(), '');
-
-  return {
-    base: env.VITE_BASE_PATH,
+export default defineConfig(({ command, mode }) =>
+// const env = loadEnv(mode, process.cwd(), '');
+// * experiment, not final version of config
+  // eslint-disable-next-line implicit-arrow-linebreak
+  ({
+    // base: env.VITE_BASE_PATH,
+    base: '/ebac-test/',
     css: {
       preprocessorOptions: {
         scss: {
@@ -28,5 +27,4 @@ export default defineConfig(({ command, mode }) => {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
     },
-  };
-});
+  }));
