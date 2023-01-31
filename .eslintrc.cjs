@@ -34,6 +34,7 @@ module.exports = {
     'arrow-parens': ['error', 'as-needed'],
     'no-param-reassign': 'off',
     'no-plusplus': 'off',
+    'no-tabs': 'off',
     //* it prevents from using barrel import - https://basarat.gitbook.io/typescript/main-1/barrel
     'import/prefer-default-export': 'off',
     // https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md

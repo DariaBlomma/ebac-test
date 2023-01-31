@@ -2,11 +2,13 @@
   <div class="page">
     <h1 class="primary-title">Profile</h1>
     <UserAvatar />
+    <PasswordBlock />
   </div>
 </template>
 
 <script setup lang="ts">
-import UserAvatar from '@/components/UserAvatar.vue'; </script>
+import UserAvatar from '@/components/UserAvatar.vue';
+import PasswordBlock from '@/components/PasswordBlock.vue'; </script>
 
 <style scoped lang="scss">
 .page {
