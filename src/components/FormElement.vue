@@ -5,13 +5,19 @@
     </label>
 
     <div class="container__inputWrapper">
-      <input
+      <slot
+        name="input"
         :value="value"
-        v-on="validationListeners"
-        :type="props.type"
-        class="container__input"
-        aria-labelledby="#input"
-      />
+        :listeners="validationListeners"
+      >
+        <input
+          :value="value"
+          v-on="validationListeners"
+          :type="props.type"
+          class="container__input"
+          aria-labelledby="#input"
+        />
+      </slot>
       <div
         v-if="isPassword"
         class="password-view">
@@ -105,6 +111,7 @@ const validationListeners = computed(() => {
   &__input {
     padding: 10px 15px;
     border-radius: 8px;
+		border: 1px solid black;
     width: 100%;
   }
 

@@ -41,13 +41,12 @@
         @showPass="togglePassVisibility('confirm', 'text')"
         @hidePass="togglePassVisibility('confirm', 'password')"
       />
-      <button
-        type="submit"
+      <BaseButton
+        type='submit'
+        text="Save"
+        :is-disabled="!(meta.valid && meta.dirty)"
         class="form__btn"
-        :disabled="!(meta.valid && meta.dirty)"
-      >
-        Save
-      </button>
+      />
     </form>
   </div>
 </template>
@@ -70,6 +69,7 @@ import type {
   PasswordInputType,
   PasswordRequirementItem,
 } from '@/types';
+import BaseButton from '@/components/base/BaseButton.vue';
 
 interface Emits {
   (e: 'save', password: string): void

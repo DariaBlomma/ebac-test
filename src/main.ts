@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import { createPinia } from 'pinia';
+import 'maz-ui/css/main.css';
 import App from './App.vue';
 
 import './assets/main.scss';
