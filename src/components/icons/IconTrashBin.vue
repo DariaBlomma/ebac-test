@@ -48,8 +48,8 @@ interface IconProps {
 }
 
 const props = withDefaults(defineProps<IconProps>(), {
-  width: 30,
-  height: 30,
+  width: 40,
+  height: 40,
   color: '#ff002f',
   hoverColor: '#8d011a',
   activeColor: '#f74464',

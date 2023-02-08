@@ -19,6 +19,7 @@
       </label>
 
       <IconTrashBin
+        class="avatar__icon"
         @click="handleIconTrashBinClick"
       />
     </div>
@@ -85,7 +86,7 @@ const handleIconTrashBinClick = () => {
 
   &__icons {
     position: absolute;
-    bottom: 27px;
+    bottom: 10px;
     display: flex;
     justify-content: center;
     gap: 5px;
@@ -99,6 +100,11 @@ const handleIconTrashBinClick = () => {
     position: absolute;
     z-index: -10;
   }
+
+	&__icon {
+		width: 30px;
+		height: 30px;
+	}
 }
 
 .error-message {
