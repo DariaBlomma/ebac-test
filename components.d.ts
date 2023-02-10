@@ -9,6 +9,7 @@ export {};
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseButton: typeof import('./src/components/base/BaseButton.vue')['default']
+    BaseForm: typeof import('./src/components/base/BaseForm.vue')['default']
     ChangePasswordForm: typeof import('./src/components/ChangePasswordForm.vue')['default']
     DatePicker: typeof import('./src/components/DatePicker.vue')['default']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
@@ -18,8 +19,10 @@ declare module '@vue/runtime-core' {
     IconClosedEye: typeof import('./src/components/icons/IconClosedEye.vue')['default']
     IconEdit: typeof import('./src/components/icons/IconEdit.vue')['default']
     IconEye: typeof import('./src/components/icons/IconEye.vue')['default']
+    IconInfo: typeof import('./src/components/icons/IconInfo.vue')['default']
     IconTrashBin: typeof import('./src/components/icons/IconTrashBin.vue')['default']
     MultipleSelect: typeof import('./src/components/MultipleSelect.vue')['default']
+    NotifyText: typeof import('./src/components/NotifyText.vue')['default']
     PasswordBlock: typeof import('./src/components/PasswordBlock.vue')['default']
     PersonalInformationForm: typeof import('./src/components/PersonalInformationForm.vue')['default']
     PhoneInput: typeof import('./src/components/PhoneInput.vue')['default']

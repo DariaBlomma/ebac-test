@@ -98,10 +98,12 @@ const validationListeners = computed(() => {
   display: flex;
   flex-direction: column;
   position: relative;
+	padding: 15px;
+	border-radius: 16px;
+	background-color: $blue_300_op_006;
 
   &__label {
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 15px;
    }
 
   &__inputWrapper {
@@ -111,14 +113,27 @@ const validationListeners = computed(() => {
   &__input {
     padding: 10px 15px;
     border-radius: 8px;
-		border: 1px solid black;
+		border: 1px solid white;
     width: 100%;
+	  color: $blue_900;
+	  transition: var(--input-transition);
+
+	  &:hover {
+		  border-color: white;
+		  box-shadow: var(--input-hover-shadow);
+	  }
+
+	  &:focus {
+		  outline: 0;
+		  border-color: $blue_300;
+		  box-shadow: var(--input-focus-shadow);
+	  }
   }
 
   &__required-mark {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 15px;
+    right: 15px;
     color: red;
   }
 }
@@ -131,9 +146,5 @@ const validationListeners = computed(() => {
     right: 10px;
     height: fit-content;
   }
-}
-
-.error-message {
-  color: darkred;
 }
 </style>

@@ -1,0 +1,49 @@
+.m-input {
+	--maz-color-muted: var(--blue_700);
+	transition: var(--input-transition);
+	
+	&.--md {
+		height: 43px;
+	}
+	
+	&.--is-focused {
+		box-shadow: var(--input-focus-shadow);
+	}
+}
+
+.m-input-wrapper {
+	transition: var(--input-transition);
+	&:hover {
+		box-shadow: var(--input-hover-shadow);
+	}
+}
+
+@media (max-width: 480px) {
+	.m-phone-number-input .m-phone-number-input__select {
+		width: 7rem;
+	}
+}
+
+@media (max-width: 420px) {
+	.m-phone-number-input {
+		.m-phone-number-input__select {
+			width: 3rem;
+		}
+		
+		.m-phone-number-input__country-flag {
+			bottom: 18px;
+		}
+		
+		
+	}
+	.m-input:first-child {
+		.m-input-label {
+			display: none;
+		}
+		
+		&.--has-label .m-input-input {
+			padding-top: 0;
+		}
+	}
+	
+}

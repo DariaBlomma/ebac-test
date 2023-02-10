@@ -18,9 +18,8 @@ import PersonalInformationForm from '@/components/PersonalInformationForm.vue'; 
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.primary-title {
-  color: $grey;
+	width: 100%;
+	background-color: $blue_800;
+	color: white;
 }
 </style>

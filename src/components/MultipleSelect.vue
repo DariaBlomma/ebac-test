@@ -23,7 +23,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import FormElement from '@/components/FormElement.vue';
-import 'element-plus/es/components/select/style/css';
 import {
   ElOption,
   ElSelect,

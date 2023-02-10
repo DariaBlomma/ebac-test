@@ -1,0 +1,40 @@
+.el-date-editor {
+	--el-date-editor-width: 100%;
+	display: inline-flex;
+}
+
+.el-input {
+	--el-component-height: 43px;
+	--el-font-size-base: 18px;
+	--el-input-height: 43px;
+	--el-input-border-radius: 8px;
+	--el-input-border-color: var(--blue_900);
+	--el-input-hover-border: var(--blue_700);
+	--el-input-focus-border-color: var(--blue_300);
+	--el-input-icon-color: var(--blue_700);
+	--el-input-text-color: var(--blue_700);
+	&__wrapper {
+		height: 43px;
+		
+		&.is-focus {
+			box-shadow: var(--input-focus-shadow);
+		}
+	}
+}
+
+.el-select {
+	--el-select-border-color-hover: var(--blue_700);
+	--el-select-font-size: 18px;
+	--el-select-input-font-size: 18px;
+	--el-select-input-focus-border-color: var(--blue_300);
+	width: 100%;
+	
+	&:hover .el-input__wrapper {
+		box-shadow: var(--input-hover-shadow);
+	}
+}
+
+// overriding original !important
+.el-select .el-input.is-focus .el-input__wrapper {
+	box-shadow: var(--input-focus-shadow) !important;
+}

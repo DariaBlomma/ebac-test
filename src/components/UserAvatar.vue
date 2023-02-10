@@ -19,6 +19,7 @@
       </label>
 
       <IconTrashBin
+        v-if="imgUrl !== getDynamicImgUrl(defaultUrl)"
         class="avatar__icon"
         @click="handleIconTrashBinClick"
       />
@@ -81,6 +82,7 @@ const handleIconTrashBinClick = () => {
 
   &__image {
     width: 100%;
+	  height: 100%;
     border-radius: 50%;
   }
 

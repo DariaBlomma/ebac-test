@@ -17,7 +17,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import 'element-plus/es/components/date-picker/style/css';
 import { ElDatePicker } from 'element-plus';
 
 interface Props {
@@ -39,6 +38,5 @@ const handleChange = (val: Date) => {
 };
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
 </style>

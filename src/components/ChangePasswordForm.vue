@@ -1,57 +1,62 @@
 <template>
   <div class="new-password">
-    <form class="form" @submit="handleFormSubmit">
-      <div class="requirements">
-        <h4 class="title-4">Password requirements:</h4>
-        <ul>
-          <li
-            v-for="elem in requirementsList"
-            :key="elem.id"
-            class="requirements__item"
-            :class="{ 'requirements__item--valid': isRequirementValid(elem) }"
-          >
-            {{ elem.text }}
-          </li>
-        </ul>
-      </div>
-      <FormElement
-        label="Current password"
-        name="current_pass"
-        :type="currentPassInputType"
-        is-password
-        is-required
-        @showPass="togglePassVisibility('current', 'text')"
-        @hidePass="togglePassVisibility('current', 'password')"
-      />
-      <FormElement
-        label="New password"
-        name="new_pass"
-        :type="newPassInputType"
-        is-password
-        is-required
-        @showPass="togglePassVisibility('new', 'text')"
-        @hidePass="togglePassVisibility('new', 'password')"
-      />
-      <FormElement
-        label="Confirm new password"
-        name="confirm_pass"
-        :type="confirmPassInputType"
-        is-password
-        is-required
-        @showPass="togglePassVisibility('confirm', 'text')"
-        @hidePass="togglePassVisibility('confirm', 'password')"
-      />
-      <BaseButton
-        type='submit'
-        text="Save"
-        :is-disabled="!(meta.valid && meta.dirty)"
-        class="form__btn"
-      />
-    </form>
+    <BaseForm
+      @form-submit="handleFormSubmit"
+    >
+      <template #content>
+        <div class="requirements">
+          <h4 class="title-4">Password requirements:</h4>
+          <ul class="requirements__list">
+            <li
+              v-for="elem in requirementsList"
+              :key="elem.id"
+              class="requirements__item"
+              :class="{ 'requirements__item--valid': isRequirementValid(elem) }"
+            >
+              {{ elem.text }}
+            </li>
+          </ul>
+        </div>
+        <FormElement
+          label="Current password"
+          name="current_pass"
+          :type="currentPassInputType"
+          is-password
+          is-required
+          @showPass="togglePassVisibility('current', 'text')"
+          @hidePass="togglePassVisibility('current', 'password')"
+        />
+        <FormElement
+          label="New password"
+          name="new_pass"
+          :type="newPassInputType"
+          is-password
+          is-required
+          @showPass="togglePassVisibility('new', 'text')"
+          @hidePass="togglePassVisibility('new', 'password')"
+        />
+        <FormElement
+          label="Confirm new password"
+          name="confirm_pass"
+          :type="confirmPassInputType"
+          is-password
+          is-required
+          @showPass="togglePassVisibility('confirm', 'text')"
+          @hidePass="togglePassVisibility('confirm', 'password')"
+        />
+        <BaseButton
+          type='submit'
+          text="Save"
+          :is-disabled="!(meta.valid && meta.dirty)"
+          class="form__btn"
+        />
+      </template>
+    </BaseForm>
   </div>
 </template>
 
 <script setup lang="ts">
+import BaseForm from '@/components/base/BaseForm.vue';
 import FormElement from '@/components/FormElement.vue';
 import { useForm } from 'vee-validate';
 import {
@@ -216,19 +221,18 @@ const handleFormSubmit = (event: Event) => {
   flex-direction: column;
   row-gap: 10px;
 
-  &__btn {
-    padding: 5px 8px;
-    width: fit-content;
-    margin: 0 auto;
-    font-size: 18px;
-  }
-
-  &__btn:disabled {
-    opacity: 0.5;
-  }
+	&__btn {
+		display: block;
+		margin: 15px auto 0;
+		width: 100%;
+	}
 }
 
 .requirements {
+	&__list {
+		margin-left: 35px;
+	}
+
   &__item {
     color: red;
     &--valid {

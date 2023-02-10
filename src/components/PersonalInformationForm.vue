@@ -1,56 +1,68 @@
 <template>
-  <h3 class="title-3">Personal Information</h3>
-  <form class="form" @submit="handleFormSubmit">
-    <FormElement
-      label="Name"
-      name="name"
-      is-required
-    />
-    <FormElement
-      label="Surname"
-      name="surname"
-      is-required
-    />
-    <FormElement
-      label="Patronymic"
-      name="patronymic"
-      is-required
-    />
-    <DatePicker
-      label="Date of birth"
-      name="date_birth"
-      :disabled-dates="disabledBirthDates"
-      @dateChange="handleDateChange"
-    />
+  <div class="container">
+    <BaseForm
+      @form-submit="handleFormSubmit"
+    >
+      <template #title>
+        <h3 class="container__title">Personal Information</h3>
+      </template>
+      <template #content>
+        <div class="form-content">
+          <FormElement
+            label="Name"
+            name="name"
+            is-required
+          />
+          <FormElement
+            label="Surname"
+            name="surname"
+            is-required
+          />
+          <FormElement
+            label="Patronymic"
+            name="patronymic"
+            is-required
+          />
+          <DatePicker
+            label="Date of birth"
+            name="date_birth"
+            :disabled-dates="disabledBirthDates"
+            @dateChange="handleDateChange"
+          />
 
-    <FormElement
-      label="Email"
-      name="email"
-      is-required
-    />
-    <FormElement
-      label="City"
-      name="city"
-    />
-    <PhoneInput
-      label="Phone"
-      name="phone"
-      @changePhone="handlePhoneChange"
-    />
+          <FormElement
+            label="Email"
+            name="email"
+            is-required
+          />
+          <FormElement
+            label="City"
+            name="city"
+          />
+          <PhoneInput
+            label="Phone"
+            name="phone"
+            @changePhone="handlePhoneChange"
+          />
 
-    <MultipleSelect
-      label="Languages"
-      name="languages"
-      @changeSelect="handleLanguagesSelectChange"
-    />
+          <MultipleSelect
+            label="Languages"
+            name="languages"
+            @changeSelect="handleLanguagesSelectChange"
+          />
 
-    <BaseButton
-      type='submit'
-      text="Save"
-      :is-disabled="!(meta.valid && meta.dirty && isPhoneValid)"
-      class="form__btn"
-    />
-  </form>
+          <div class="form-content__footer">
+            <BaseButton
+              type='submit'
+              text="Save"
+              :is-disabled="!(meta.valid && meta.dirty && isPhoneValid)"
+              class="form-content__submit-btn"
+            />
+          </div>
+        </div>
+      </template>
+    </BaseForm>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -139,6 +151,37 @@ const handleFormSubmit = (event: Event) => {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+//desktop first
+.container {
+	margin-top: 20px;
+}
 
+.form-content {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 20px;
+
+	&__footer {
+		grid-column: span 2;
+	}
+
+	&__submit-btn {
+		display: block;
+		width: 48%;
+		margin-left: auto;
+	}
+}
+
+@media(max-width: 900px) {
+	.form-content {
+		display: flex;
+		flex-direction: column;
+
+		&__submit-btn {
+			width: 100%;
+			margin-left: 0;
+		}
+	}
+}
 </style>

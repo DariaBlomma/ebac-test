@@ -1,3 +1,4 @@
+@import 'styles/_variables.scss';
 *,
 *::before,
 *::after {
@@ -7,8 +8,6 @@
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
   font-weight: normal;
 }
 
@@ -19,4 +18,15 @@ body {
   font-family: Roboto, sans-serif;
   font-size: 18px;
 }
+
+.error-message {
+  color: red;
+}
+
+.accented-text {
+  color: $green_300;
+}
+
+@import "styles/element-ui-override";
+@import "styles/maz-ui-override";
 
